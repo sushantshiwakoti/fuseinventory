@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ItemDTO {
+public class ItemDTO extends BaseDTO{
     private String itemName;
     private String itemCode;
-    private Double availableQty;
+    private Integer availableQty;
     private ItemType type;
 
 }

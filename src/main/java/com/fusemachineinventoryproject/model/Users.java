@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Document(collation = "users")
-public class Users extends BaseModel {
+@Document(collection =  "users")
+public class Users extends BaseModel<String> {
 
     @Field(name = "user_name")
     private String username;

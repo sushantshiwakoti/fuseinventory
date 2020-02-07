@@ -7,8 +7,10 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -17,10 +19,7 @@ import java.sql.Date;
 public class BaseModel<T> implements Serializable {
     @Id
     private T id;
-
-    @CreatedDate
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date createdDate;
 
-    @LastModifiedDate
-    private Date updatedDate;
 }

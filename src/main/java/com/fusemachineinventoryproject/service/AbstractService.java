@@ -61,8 +61,8 @@ public abstract class AbstractService<T, ID, Repo extends ExtendedRepository<T, 
     }
 
     @Transactional
-    public T findOne(ID id) {
-        Optional<T> byId = repository.findById(id);
+    public T findOne(String id) {
+        Optional<T> byId = repository.findById((ID) id);
         return byId.isPresent() ? byId.get() : null;
     }
 

@@ -9,12 +9,14 @@ import com.fusemachineinventoryproject.model.Users;
 import com.fusemachineinventoryproject.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 
 @Service
-public class UserService extends AbstractService<Users, Long, UserRepository> implements CommonServiceMethods<Users, Long> {
+public class UserService extends AbstractService<Users, String, UserRepository> implements CommonServiceMethods<Users, String> {
 
 
     private UserMapper userMapper;
@@ -37,7 +39,7 @@ public class UserService extends AbstractService<Users, Long, UserRepository> im
 
     }
 
-    public UsersDTO updateUsers(Long userId, UsersDTO usersDTO) throws NoSuchFieldException {
+    public UsersDTO updateUsers(String userId, UsersDTO usersDTO) throws NoSuchFieldException {
         Optional<Users> users = repository.findById(userId);
         if (users.isPresent()) {
             Users existingUser = users.get();
@@ -55,6 +57,7 @@ public class UserService extends AbstractService<Users, Long, UserRepository> im
         users.setFirstName(usersDTO.getFirstName());
         users.setLastName(usersDTO.getLastName());
         users.setAge(usersDTO.getAge());
+
         users.setPhoneNumber(usersDTO.getPhoneNumber());
         if (usersDTO.getItems() != null || usersDTO.getItems().size() > 0) {
             users.setItems(itemMapper.fromDTO(usersDTO.getItems()));

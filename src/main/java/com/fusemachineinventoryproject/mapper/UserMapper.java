@@ -15,6 +15,7 @@ public interface UserMapper extends CommonMapper<Users, UsersDTO> {
     UsersDTO toDTO(Users users);
 
 
+
     @Mappings({})
     List<UsersDTO> toDTOList(List<Users> users);
 }

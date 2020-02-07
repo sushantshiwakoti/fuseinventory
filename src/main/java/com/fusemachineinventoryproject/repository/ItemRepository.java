@@ -1,14 +1,16 @@
 package com.fusemachineinventoryproject.repository;
 
 import com.fusemachineinventoryproject.model.Item;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ItemRepository extends ExtendedRepository<Item, Long> {
+public interface ItemRepository extends ExtendedRepository<Item, String> {
 
+    List<Item> findAllByitemName(String name);
 
-    List<Item> findItemList();
+    List<Item> findItemListBytype(String type);
+
+    List<Item> findAllByavailableQty(Integer quantity);
 }

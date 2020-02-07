@@ -9,6 +9,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ItemMapper extends CommonMapper<Item, ItemDTO> {
+
+
     @Mappings({})
     @Override
     ItemDTO toDTO(Item item);
